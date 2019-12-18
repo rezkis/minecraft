@@ -6,15 +6,13 @@ local fs = require("filesystem")
 local port = 512
 local keyWord = "ECSGrief"
 local modem
-local redstone = component.redstone
-local redstoneState = false
 local toolUsingMode = false
 local toolUsingSide = 1
 
 if component.isAvailable("modem") then
 	modem = component.modem
 else
-	error("Этой программе требуется беспроводной модем для работы!")
+	error("ГќГІГ®Г© ГЇГ°Г®ГЈГ°Г Г¬Г¬ГҐ ГІГ°ГҐГЎГіГҐГІГ±Гї ГЎГҐГ±ГЇГ°Г®ГўГ®Г¤Г­Г®Г© Г¬Г®Г¤ГҐГ¬ Г¤Г«Гї Г°Г ГЎГ®ГІГ»!")
 end
 
 modem.open(port)
@@ -46,7 +44,7 @@ local function receive()
 				if message == "selfDestroy" then
 					local fs = require("filesystem")
 					for file in fs.list("") do
-						print("Уничтожаю \"" .. file .. "\"")
+						print("Г“Г­ГЁГ·ГІГ®Г¦Г Гѕ \"" .. file .. "\"")
 						fs.remove(file)
 					end
 					require("term").clear()
@@ -54,24 +52,24 @@ local function receive()
 				elseif message == "use" then
 					if toolUsingMode then
 						if toolUsingSide == 1 then
-							print("Использую экипированный предмет в режиме правого клика перед роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ ГЇГ°Г ГўГ®ГЈГ® ГЄГ«ГЁГЄГ  ГЇГҐГ°ГҐГ¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.use()
 						elseif toolUsingSide == 0 then
-							print("Использую экипированный предмет в режиме правого клика под роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ ГЇГ°Г ГўГ®ГЈГ® ГЄГ«ГЁГЄГ  ГЇГ®Г¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.useDown()
 						elseif toolUsingSide == 2 then
-							print("Использую экипированный предмет в режиме правого клика над роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ ГЇГ°Г ГўГ®ГЈГ® ГЄГ«ГЁГЄГ  Г­Г Г¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.useUp()
 						end
 					else
 						if toolUsingSide == 1 then
-							print("Использую экипированный предмет в режиме левого клика перед роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ Г«ГҐГўГ®ГЈГ® ГЄГ«ГЁГЄГ  ГЇГҐГ°ГҐГ¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.swing()
 						elseif toolUsingSide == 0 then
-							print("Использую экипированный предмет в режиме левого клика под роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ Г«ГҐГўГ®ГЈГ® ГЄГ«ГЁГЄГ  ГЇГ®Г¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.swingDown()
 						elseif toolUsingSide == 2 then
-							print("Использую экипированный предмет в режиме левого клика над роботом")
+							print("Г€Г±ГЇГ®Г«ГјГ§ГіГѕ ГЅГЄГЁГЇГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ Гў Г°ГҐГ¦ГЁГ¬ГҐ Г«ГҐГўГ®ГЈГ® ГЄГ«ГЁГЄГ  Г­Г Г¤ Г°Г®ГЎГ®ГІГ®Г¬")
 							robot.swingUp()
 						end
 					end
@@ -82,11 +80,11 @@ local function receive()
 				elseif message == "changeToolUsingMode" then
 					toolUsingMode = not toolUsingMode
 				elseif message == "increaseToolUsingSide" then
-					print("Изменяю режим использования вещи")
+					print("Г€Г§Г¬ГҐГ­ГїГѕ Г°ГҐГ¦ГЁГ¬ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї ГўГҐГ№ГЁ")
 					toolUsingSide = toolUsingSide + 1
 					if toolUsingSide > 2 then toolUsingSide = 2 end
 				elseif message == "decreaseToolUsingSide" then
-					print("Изменяю режим использования вещи")
+					print("Г€Г§Г¬ГҐГ­ГїГѕ Г°ГҐГ¦ГЁГ¬ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї ГўГҐГ№ГЁ")
 					toolUsingSide = toolUsingSide - 1
 					if toolUsingSide < 0 then toolUsingSide = 0 end
 				end
@@ -97,11 +95,11 @@ end
 
 local function main()
 	print(" ")
-	print("Добро пожаловать в программу ECSGrief Receiver v1.0 alpha early access! Идет ожидание команд с беспроводного устройства.")
+	print("Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬Гі ECSGrief Receiver v1.0 alpha early access! Г€Г¤ГҐГІ Г®Г¦ГЁГ¤Г Г­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ Г± ГЎГҐГ±ГЇГ°Г®ГўГ®Г¤Г­Г®ГЈГ® ГіГ±ГІГ°Г®Г©Г±ГІГўГ .")
 	print(" ")
 	receive()
 	print(" ")
-	print("Программа приема сообщений завершена!")
+	print("ГЏГ°Г®ГЈГ°Г Г¬Г¬Г  ГЇГ°ГЁГҐГ¬Г  Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© Г§Г ГўГҐГ°ГёГҐГ­Г !")
 end
 
 -------------------------------------------------------------------------------------

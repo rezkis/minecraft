@@ -10,23 +10,23 @@ modem.open(port)
 -----------------------------------------------
  
 while true do
-    local e = { computer.pullsignal() }
+    local e = { computer.pullSignal() }
     if e[1] == "modem_message" then
         if e[4] == port then
             if e[6] == "ECSDrone" then
                 drone.setStatusText("Команда: " .. e[7])
                 if e[7] == "moveUp" then
-                    drone.move(0, moveSpeed, 0)
+                    drone.move(0, 1, 0)
                 elseif e[7] == "moveDown" then
-                    drone.move(0, -moveSpeed, 0)
+                    drone.move(0, -1, 0)
                 elseif e[7] == "moveForward" then
-                    drone.move(moveSpeed, 0, 0)
+                    drone.move(1, 0, 0)
                 elseif e[7] == "moveBack" then
-                    drone.move(-moveSpeed, 0, 0)
+                    drone.move(-1, 0, 0)
                 elseif e[7] == "moveLeft" then
-                    drone.move(0, 0, -moveSpeed)
+                    drone.move(0, 0, -1)
                 elseif e[7] == "moveRight" then
-                    drone.move(0, 0, moveSpeed)
+                    drone.move(0, 0, 1)
                 elseif e[7] == "OTSOS" then
                     for i = 1, (inventory.getInventorySize(0) or 1) do
                         inventory.suckFromSlot(0, i)
@@ -49,7 +49,7 @@ while true do
                 elseif e[7] == "DROP" then
                     for i = 1, drone.inventorySize() do
                         drone.select(i)
-                        drone.drop(64)
+                        drone.drop(1,1)
                     end
                 end
             end

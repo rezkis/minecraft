@@ -34,6 +34,23 @@ while true do
                     for i = 1, (inventory.getInventorySize(1) or 1) do
                         inventory.suckFromSlot(1, i)
                     end
+                    for i = 1, (inventory.getInventorySize(2) or 1) do
+                        inventory.suckFromSlot(2, i)
+                    end
+                    for i = 1, (inventory.getInventorySize(3) or 1) do
+                        inventory.suckFromSlot(3, i)
+                    end
+                    for i = 1, (inventory.getInventorySize(4) or 1) do
+                        inventory.suckFromSlot(4, i)
+                    end
+                    for i = 1, (inventory.getInventorySize(5) or 1) do
+                        inventory.suckFromSlot(5, i)
+                    end
+                elseif e[7] == "DROP" then
+                    for i = 1, drone.inventorySize() do
+                        drone.select(i)
+                        drone.drop(64)
+                    end
                 end
             end
         end

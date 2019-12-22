@@ -5,13 +5,13 @@ local port = 512
 modem.open(port)
 
 local keys = {
-    [17] = "moveForward"
-    [31] = "moveBack"
-    [30] = "moveLeft"
-    [32] = "moveRight"
-    [42] = "moveDown"
-    [57] = "moveUp"
-    [18] = "OTSOS"
+    [17] = "moveForward",
+    [31] = "moveBack",
+    [30] = "moveLeft",
+    [32] = "moveRight",
+    [42] = "moveDown",
+    [57] = "moveUp",
+    [18] = "OTSOS",
 }
 
 while true do

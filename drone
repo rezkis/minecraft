@@ -30,10 +30,9 @@ while true do
                 elseif e[7] == "OTSOS" then
                     for i = 1, (inventory.getInventorySize(0) or 1) do
                         inventory.suckFromSlot(0, i)
-                        end
+                    end
                     for i = 1, (inventory.getInventorySize(1) or 1) do
                         inventory.suckFromSlot(1, i)
-                        end
                     end
                 end
             end

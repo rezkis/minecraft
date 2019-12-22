@@ -12,6 +12,7 @@ local keys = {
     [42] = "moveDown",
     [57] = "moveUp",
     [18] = "OTSOS",
+    [16] = "DROP",
 }
 
 while true do

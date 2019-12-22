@@ -21,11 +21,5 @@ while true do
             print("Команда дрону: " .. keys [e[4]])
             modem.broadcast(port, "ECSDrone", keys[e[4]])
         end
-    elseif e[1] == "scroll" then
-        if e[5] == 1 then
-            modem.broadcast(port, "ECSDrone", "moveSpeedUp")
-        else
-            modem.broadcast(port, "ECSDrone", "moveSpeedDown")
-        end
     end
 end
